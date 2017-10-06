@@ -5,7 +5,7 @@
 public class ChatBotMai {
 	public String startGreeting()
 	{
-		String greeting="Hi there what do you want to talk about? Classes? Weapons? ";
+		String greeting="Hi there what do you want to talk about in realm of the mad god? Classes? Weapons? ";
 		return greeting;
 	}
 	public String getResponse(String userinput)
