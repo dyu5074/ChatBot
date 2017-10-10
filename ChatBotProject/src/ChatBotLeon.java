@@ -27,27 +27,36 @@ public class ChatBotLeon {
 		{
 			response = topicWeapons(statement);
 		}
-		else if (findKeyword(statement, "players") >= 0)
+		else if (findKeyword(statement, "maps") >= 0)
 		{
-			response = topicPlayers(statement);
+			response = topicMaps(statement);
 		}
 		else 
 		{
-			return "I don't know what "+statement+ " is, lets talk abuot something else.";
+			return "I don't know what "+statement+ " is, lets talk about something else.";
 		}
 		return response;
 	}
 	private String topicSkins(String statement)
 	{
+		return "My favorite skin is the AWP Dragonlore, what's yours?";		
+		
+		if (findKeyword(statement, "skins") >= 0)
+		{
+			response = topicSkins2(statement);
+		}
+	}
+	private String topicSkins2(String statement)
+	{
 		
 	}
 	private String topicWeapons(String statement)
 	{
-		
+		return "My favorite weapon is the AK-47, what's yours?";
 	}
-	private String topicPlayers(String statement)
+	private String topicMaps(String statement)
 	{
-		
+		return "My favorite map is Dust 2, what's yours?";
 	}
 	// took from ChatBotLevin
 	private int findKeyword(String statement, String goal, int startPos)
@@ -101,4 +110,6 @@ public class ChatBotLeon {
 	{
 		return findKeyword (statement, goal, 0);
 	}
+	private String [] listSkins = {};
+	private String [] listGuns = {"M4A1", "AWP", "AUG", "galil", "FAMAS"};
 }
