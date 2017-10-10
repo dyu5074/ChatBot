@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-
+//hoi
 public class ChatBotHoiLam {
 		int emotion = 0;
 		public String getGreeting()
