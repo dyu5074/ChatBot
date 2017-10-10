@@ -40,6 +40,7 @@ public class ChatBotDerek {
 	    }
 		return response;
 	}
+	//
 		private String Characters(int x)
 		{
 		String y = "";
