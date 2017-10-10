@@ -34,8 +34,12 @@ public class ChatBotDerek {
 		{
 			response = "Buy items to get stronger. ";
 		}
-			return response;
+		else
+		{
+			return "Please say something";
 	    }
+		return response;
+	}
 		private String Characters(int x)
 		{
 		String y = "";
