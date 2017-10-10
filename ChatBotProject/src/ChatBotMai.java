@@ -18,15 +18,25 @@ public class ChatBotMai {
 		else if(findKeyword(userinput,"classes",0)>=0)
 		{
 			reply="In realm of the mad god there are 14 different classes. The 14 classes are rouge, archer, wizard, priest, warrior, paladin, knight,"
-					+ " assassin, necromancer, huntress, trickster, sorcerer, mystic, and ninja. Which one are you interesting in talking about?";
+					+ "\n assassin, necromancer, huntress, trickster, sorcerer, mystic, and ninja. Which one are you interesting in talking about?\n"
+					+ " I only know the knight, warrior, and wizard.";
 		}
 		else if(findKeyword(userinput, "weapons",0)>=0)
 		{
 			reply="There are 6 different weapons. They consist of the dagger, the bow, the staff, the wand, the sword, and the katana";
 		}
-		else if(findKeyword(userinput,"class",0)>=0)
+		else if(findKeyword(userinput,"knight",0)>=0)
 		{
-			reply="What class do you want to talk about? I only know the knight, warrior, and wizard.";
+			reply="The knight is a melee class that has a high defense and his ability can stun monsters to prevent them from attacking.\n"
+					+ "however some monsters are immune to the stun effect.";
+		}
+		else if(findKeyword(userinput,"warrior",0)>=0)
+		{
+			reply="The Warrior is a melee class that prevails due to his ability, which allows him to attack more frequently and run faster.";
+		}
+		else if(findKeyword(userinput,"wizard",0)>=0)
+		{
+			reply="The Wizard is a ranged class whom shoots with his staff. His ability is to expolde and area and the effects spread out from the center.";
 		}
 		else
 		{
