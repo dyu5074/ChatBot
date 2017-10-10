@@ -77,6 +77,7 @@ public class ChatBotDerek {
 		}
 			return y;
 		}
+		//
 	private int findKeyword(String statement, String goal, int startPos)
 	{
 		String phrase = statement.trim().toLowerCase();
