@@ -1,7 +1,7 @@
 public class ChatBotDerek {
 	public String getGreeting()
 	{
-		return "Hey, Lets talk about League of Legends. Do you know the characters and the items in the game?";
+		return "Hey, Lets talk about League of Legends. Have you ever played this game? What do you want to talk about in League of Legends, items? characters?, strategies? ";
 	}
 	public String getResponse(String statement)
 	{
@@ -14,64 +14,69 @@ public class ChatBotDerek {
 		{
 			response = "Well, you chose the wrong game.";
 		}
-		else if (findKeyword(statement, "ye") >= 0)
-		{
-			response = "Have you ever played this game?";
-		}
 		else if (findKeyword(statement, "yes") >= 0)
 		{
-			
+			response = "Nice, what do you want to talk about?";
+		}
+		else if (findKeyword(statement, "strategies") >= 0)
+		{
+			response = "1) Kill minions to earn gold. 2) Level up to get stronger. 3) Destroy enemy towers to win the game. ";
+		}
+		else if (findKeyword(statement, "favorite character") >= 0)
+		{
+			response = "My favorite character is Leona, What is yours?";
 		}
 		else if (findKeyword(statement, "characters") >= 0)
 		{
-			response = "There are over 100 characters. Here are all the characters you can choose from. Pick a number between 1 and 138.";
-			Characters(38);
+			response = "There are around 138 characters. All of the characters have different abilities and backgrounds.";
 		}
 		else if (findKeyword(statement, "items") >= 0)
 		{
 			response = "Buy items to get stronger. ";
 		}
 			return response;
-	}
-	private boolean Characters(int x)
-	{
+	    }
+		private String Characters(int x)
+		{
+		String y = "";
 		if (x == 1)
 		{
-			System.out.println("Annie");
+			y = "Annie";
 		}
 		else if (x == 2)
 		{
-			System.out.println("Ashe");
+			y = "Ashe";
 		}
 		else if (x == 3)
 		{
-			System.out.println("Garen");
+			y = "Garen";
 		}
 		else if (x == 4)
 		{
-			System.out.println("Alistar");
+			y = "Alistar";
 		}
 		else if (x == 5)
 		{
-			System.out.println("Akali");
+			y = "Akali";
 		}
 		else if (x == 6)
 		{
-			System.out.println("Katarina");
+			y = "Katarina";
 		}
 		else if (x == 7)
 		{
-			System.out.println("Ornn");
+			y = "Diana";
 		}
 		else if (x == 8)
 		{
-			System.out.print("Zed");
+			y = "Zed";
 		}
 		else
 		{
-			return false;
+			y ="";
 		}
-	}
+			return y;
+		}
 	private int findKeyword(String statement, String goal, int startPos)
 	{
 		String phrase = statement.trim().toLowerCase();
