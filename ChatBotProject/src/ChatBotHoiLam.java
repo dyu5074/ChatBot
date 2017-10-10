@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class ChatBotHoiLam {
 		int emotion = 0;
@@ -6,11 +7,12 @@ public class ChatBotHoiLam {
 		{
 			return "Hey, I think minecraft is awesome! How about you?";
 		}
+		String statement;
 		public String getResponse(String statement)
 		{
 			String response = "";
 			
-			if (statement.length() == 0)
+			if (statement.length() < 1)
 			{
 				response = "What do you say?";
 			}
@@ -21,13 +23,16 @@ public class ChatBotHoiLam {
             	emotion--;
 
 			}
-			else if (findKeyword(statement, "yes")>=0 || findKeyword(statement, "same")>=0 )
-			{
-				response = ":) Awesome. What is your favorite map in Minecraft?";
-			}
 			else if (findKeyword(statement, "game") >= 0)
 			{		
 				response = "I really like to play games";
+			}
+			else if(findKeyword(statement, "same")>=0)
+			{
+				System.out.println (" :) Awesome. What map do you like the most?");
+				Scanner a = new Scanner (System.in);
+				String Mapstatement = a.nextLine();
+				response = map(Mapstatement);
 			}
 			else
 			{
@@ -36,7 +41,18 @@ public class ChatBotHoiLam {
 			
 			return response;
 		}
-		
+		public String map(String Mapstatement)
+		{
+			if(findKeyword(Mapstatement, "skyblock")>=0)
+			{
+				emotion++;
+				return "I like skyblock the most!";
+			}
+			else
+			{
+				return "Oh! Tell me more about it";
+			}
+		}
 		private int findKeyword(String statement, String goal, int startPos)
 		{
 			String phrase = statement.trim().toLowerCase();
@@ -86,7 +102,6 @@ public class ChatBotHoiLam {
 		}
 		
 		private String [] randomNeutralResponses = {
-				"Interesting, tell me more",
 				"Hmmm.",
 				"Do you really think so?",
 				"Sorry, I do not understand.",
