@@ -33,7 +33,7 @@ public class ChatBotDerek {
 		}
 			return response;
 	}
-	private boolean void Characters(int x)
+	private boolean Characters(int x)
 	{
 		if (x == 1)
 		{
