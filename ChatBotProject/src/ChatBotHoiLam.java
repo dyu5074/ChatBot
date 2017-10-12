@@ -1,38 +1,75 @@
 import java.util.Random;
 import java.util.Scanner;
-//hoi 
+//Created By Hoi Lam Wong
+
 public class ChatBotHoiLam {
-		int emotion = 0;
 		public String getGreeting()
 		{
-			return "Hey, I think minecraft is awesome! How about you?";
+			Scanner input = new Scanner(System.in);
+			System.out.println("Hello, what is your name?");
+			String name = input.next();
+			System.out.println("Nice to meet you " + name + " ! Do you like Minecraft?");
+			String answer = input.next();
+			if(answer.length()<1)
+			{
+				System.out.println("Say something");
+			}
+			if(findKeyword(answer, "no") >=0)
+			{
+			//go back to ChatBotRunner
+				System.out.println("Okay. Have a nice day !");
+				ChatBotRunner chatbot1 = new ChatBotRunner();
+				String[] args = new String[0] ;
+			    chatbot1.main(args);
+			}
+			return "I LOVE to play minecraft!";
 		}
 		String statement;
 		public String getResponse(String statement)
 		{
 			String response = "";
-			
+			//Keywords
 			if (statement.length() < 1)
 			{
 				response = "What do you say?";
 			}
-
-			else if (findKeyword(statement, "no") >= 0)
-			{
-				response = "Aww, do you want to talk ahout another game?";
-            	emotion--;
-
-			}
-			else if (findKeyword(statement, "game") >= 0)
+			else if (findKeyword(statement, "minecraft") >= 0)
 			{		
-				response = "I really like to play games";
+				response = getRandomMinecraftResponse();
 			}
-			else if(findKeyword(statement, "same")>=0)
+			else if(findKeyword(statement, "skin")>=0)
 			{
-				System.out.println (" :) Awesome. What map do you like the most?");
+				if(findKeyword(statement, "change")>=0)
+				{
+					response = "To change your skin in minecraft: \nFirst, download your new skins.\n"
+							+ "Then, login to Minecraft.net and upload your skin from the Profile page.";
+				}
+				else
+				{
+					response =  getRandomSkinResponse();
+				}
+			}
+			else if(findKeyword(statement, "map")>=0)
+			{
+					System.out.println ("What map do you like the most?");
+					Scanner a = new Scanner (System.in);
+					String Mapstatement = a.nextLine();
+					response = map(Mapstatement);
+			}
+			else if(findKeyword(statement, "server")>=0)
+			{
+				System.out.println ("What map do you like the most?");
 				Scanner a = new Scanner (System.in);
 				String Mapstatement = a.nextLine();
 				response = map(Mapstatement);
+			}
+			else if(findKeyword(statement, "play")>=0)
+			{
+				response =" I like to play a lot of games. Minecraft is my favorite game.";
+			}
+			else if(findKeyword(statement, "no")>=0)
+			{
+				response ="NO?";
 			}
 			else
 			{
@@ -45,7 +82,6 @@ public class ChatBotHoiLam {
 		{
 			if(findKeyword(Mapstatement, "skyblock")>=0)
 			{
-				emotion++;
 				return "I like skyblock the most!";
 			}
 			else
@@ -53,6 +89,7 @@ public class ChatBotHoiLam {
 				return "Oh! Tell me more about it";
 			}
 		}
+//findKeyword
 		private int findKeyword(String statement, String goal, int startPos)
 		{
 			String phrase = statement.trim().toLowerCase();
@@ -71,11 +108,8 @@ public class ChatBotHoiLam {
 							psn + goal.length(),
 							psn + goal.length() + 1);
 				}
-				if (((before.compareTo("a") < 0) || (before
-						.compareTo("z") > 0)) // before is not a
-												// letter
-						&& ((after.compareTo("a") < 0) || (after
-								.compareTo("z") > 0)))
+				if (((before.compareTo("a") < 0) || (before.compareTo("z") > 0)) 
+					&& ((after.compareTo("a") < 0) || (after.compareTo("z") > 0)))
 				{
 					return psn;
 				}
@@ -87,28 +121,45 @@ public class ChatBotHoiLam {
 		{
 			return findKeyword (statement, goal, 0);
 		}
+
+//Minecraft Response
+		private String getRandomMinecraftResponse()
+		{
+			Random rMinecraft = new Random();
+			return randomMinecraftResponse[rMinecraft.nextInt(randomMinecraftResponse.length)];
+		}
+		private String[]randomMinecraftResponse = {
+			"Minecraft is a game about placing blocks and going on adventures."	,
+			"Minecraft is a sandbox video game created and designed by Swedish game designer Markus \"Notch\" Persson",
+			"One Minecraft block equals 1 meter cubed.",
+			"Chickens in minecraft are so big they¡¯re about 3 feet tall!"
+		};
+		
+//Skin Response
+		private String getRandomSkinResponse()
+		{
+			Random rSkin = new Random();
+			return randomSkinResponse[rSkin.nextInt(randomSkinResponse.length)];
+		}
+		private String[]randomSkinResponse = {
+			"The default skin in Minecraft is Steve.",
+			"You can create your own skin using online free editor.",
+			"My skin in Minecraft is a girl wearing a pig hat!"
+		};
+		
+//Normal Response
 		private String getRandomResponse ()
 		{
 			Random r = new Random ();
-			if (emotion == 0)
-			{	
-				return randomNeutralResponses [r.nextInt(randomNeutralResponses.length)];
-			}
-			if (emotion < 0)
-			{	
-				return randomAngryResponses [r.nextInt(randomAngryResponses.length)];
-			}	
-			return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
+			return randomNeutralResponses [r.nextInt(randomNeutralResponses.length)];
 		}
 		
 		private String [] randomNeutralResponses = {
 				"Hmmm.",
 				"Do you really think so?",
 				"Sorry, I do not understand.",
-				"Could you say that again?"
+				"Could you say that again?",
+				"Everyday I'm shoveling"
 		};
-		private String [] randomAngryResponses = {"WHAT?!", "NOO",};
-		private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Let's play Minecraft together someday", 
-							"Everyday I'm shoveling"};
 	}
 

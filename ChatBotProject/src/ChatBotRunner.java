@@ -62,7 +62,7 @@ public class ChatBotRunner
 				statement = in.nextLine();
 			}
 		}	
-		if(select.equals("Hoilam"))
+		if(select.equals("HoiLam"))
 		{
 			System.out.println (chatbot4.getGreeting());
 			Scanner in = new Scanner (System.in);
@@ -76,5 +76,4 @@ public class ChatBotRunner
 			}
 		}		
 	}
-
 }
