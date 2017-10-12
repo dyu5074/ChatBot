@@ -102,7 +102,7 @@ public class ChatBotHoiLam {
 			}
 			else
 			{
-				return getResponse(statement);
+				return "interesting";
 			}
 		}
 //server
