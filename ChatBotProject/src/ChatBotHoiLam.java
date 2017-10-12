@@ -58,10 +58,10 @@ public class ChatBotHoiLam {
 			}
 			else if(findKeyword(statement, "server")>=0)
 			{
-				System.out.println ("What map do you like the most?");
-				Scanner a = new Scanner (System.in);
-				String Mapstatement = a.nextLine();
-				response = map(Mapstatement);
+				System.out.println ("My favorite server is Keinett.");
+				Scanner b = new Scanner (System.in);
+				String Serverstatement = b.nextLine();
+				response = server(Serverstatement);
 			}
 			else if(findKeyword(statement, "play")>=0)
 			{
@@ -71,6 +71,21 @@ public class ChatBotHoiLam {
 			{
 				response ="NO?";
 			}
+			else if(findKeyword(statement, "yes")>=0)
+			{
+				response ="Same :)";
+			}
+			else if(findKeyword(statement, "Hi")>=0)
+			{
+				response ="Hi";
+			}
+			else if((findKeyword(statement,"ip")>=0)||(findKeyword(statement,"address")>=0))
+			{
+				return "Here is the list of some of my favorite servers: \n"
+						+ "1. MC.KEINETT.US\n"
+						+ "2. terrestria-mc.com\n"
+						+ "3. mc.differentcraft.net\n";
+			}
 			else
 			{
 				response = getRandomResponse();
@@ -78,6 +93,7 @@ public class ChatBotHoiLam {
 			
 			return response;
 		}
+//map
 		public String map(String Mapstatement)
 		{
 			if(findKeyword(Mapstatement, "skyblock")>=0)
@@ -86,7 +102,40 @@ public class ChatBotHoiLam {
 			}
 			else
 			{
-				return "Oh! Tell me more about it";
+				return getResponse(statement);
+			}
+		}
+//server
+		public String server(String Serverstatement)
+		{
+			if(findKeyword(Serverstatement, "keinett")>=0)
+			{
+				return "Keinett offers a multitude of minecraft servers to play on.";
+			}
+			else if(findKeyword(Serverstatement, "list")>=0)
+			{
+				System.out.println("Do you want my top 3 server list?");
+				Scanner c = new Scanner (System.in);
+				String serverlista = c.nextLine();
+				if(findKeyword(serverlista, "yes")>=0)
+				{
+					return "Here is the list of some of my favorite servers: \n"
+							+ "		1. MC.KEINETT.US\n"
+							+ "		2. terrestria-mc.com\n"
+							+ "		3. mc.differentcraft.net\n";
+				}
+				else if(findKeyword(serverlista, "no")>=0)
+				{
+					return "...";
+				}
+				else
+				{
+					return "hmmm";
+				}
+			}
+			else
+			{
+				return getResponse(statement);
 			}
 		}
 //findKeyword
