@@ -20,15 +20,15 @@ public class ChatBotMai {
 		else if(findKeyword(userinput,"classes",0)>=0)
 		{
 			System.out.println ("In realm of the mad god there are 14 different classes. The 14 classes are rouge, archer, wizard, priest, warrior, paladin, knight,\\n assassin, necromancer, huntress, trickster, sorcerer, mystic, and ninja. Which one are you interesting in talking about?\\n I only know the knight, warrior, and wizard. Which one do you want to talk about?\";");		
-			Scanner line = new Scanner (System.in);
-			String classchosen = line.nextLine();
+			Scanner pickclass = new Scanner (System.in);
+			String classchosen = pickclass.nextLine();
 			reply=Classtype(classchosen);
 		}
 		else if(findKeyword(userinput, "weapons",0)>=0)
 		{
 			System.out.println("There are 6 different weapons. They consist of the dagger, the bow, the staff, the wand, the sword, and the katana. Which weapon do you like?");
-			Scanner weap = new Scanner (System.in);
-			String weaponchosen = weap.nextLine();
+			Scanner weapon = new Scanner (System.in);
+			String weaponchosen = weapon.nextLine();
 			reply=weapontype(weaponchosen);
 		}
 		else if(findKeyword(userinput,"yes",0)>=0)
