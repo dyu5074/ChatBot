@@ -1,5 +1,7 @@
 import java.util.Random;
 import java.util.Scanner; 
+// Derek Yu
+// Chatbot 
 public class ChatBotDerek {
 	public String getGreeting()
 	{	
@@ -15,7 +17,7 @@ public class ChatBotDerek {
 		}
 		else if (findKeyword(statement, "no") >= 0)
 		{
-			response = "Well, you chose the wrong game.";
+			System.out.println("Well, you chose the wrong game.");
 			ChatBotRunner chatbot1 = new ChatBotRunner();
 			String[] args = new String[0] ;
 		    chatbot1.main(args);
@@ -41,7 +43,8 @@ public class ChatBotDerek {
 			+ "Here is a random character");
 			Scanner c = new Scanner (System.in);
 			String s = getRandomCharacter();
-			response = "I love playing" + s +" Do you too?";
+			System.out.println(s);
+			response = "I love playing " + s +" Do you too?";
 		}
 		else if (findKeyword(statement, "items") >= 0)
 		{
@@ -62,7 +65,9 @@ public class ChatBotDerek {
 		return response;
 	}
 	//
-		private String [] Characters = {"Annie - The Dark Child", "Ashe", "Pantheon", "Zed", "Camille", "Diana", "Katarina", "Vladimir", "Zac", "Jax"}; 
+		private String [] Characters = {"Annie - The Dark Child", "Ashe - The Frost Archer", "Pantheon - The Artisan Of War",  
+				"Zed - The Master Of Shadows", "Camille - The Steel Shadow", "Diana - The Scorn Of The Moon", "Katarina - The Sinister Blade",
+				 "Vladimir - The Crimson Reaper", "Zac - The Secret Weapon", "Jax - Grandmaster At Arms"};
 		private String [] Items =  {"Trinity Force", "Infinity Edge", "Tear Of The Goddess" , "Sightstone", "The Black Cleaver", "Rod Of Ages",
 				"Iceborn Gauntlet", "Rapid Firecannon"};
 		private String [] Randomfact = {"League of Legends was released on October 27, 2009.", 
